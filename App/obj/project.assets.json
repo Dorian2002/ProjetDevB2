@@ -651,11 +651,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\cours\\ProjetDevB2Marketplace\\App\\App.csproj",
+      "projectUniqueName": "D:\\cours\\ProjetDevB2\\App\\App.csproj",
       "projectName": "App",
-      "projectPath": "D:\\cours\\ProjetDevB2Marketplace\\App\\App.csproj",
+      "projectPath": "D:\\cours\\ProjetDevB2\\App\\App.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\cours\\ProjetDevB2Marketplace\\App\\obj\\",
+      "outputPath": "D:\\cours\\ProjetDevB2\\App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
