@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\cours\\ProjetDevB2Marketplace\\App\\App.csproj": {}
+    "C:\\Users\\Fabio\\Desktop\\ProjetB2Dev\\ProjetDevB2\\App\\App.csproj": {}
   },
   "projects": {
-    "D:\\cours\\ProjetDevB2Marketplace\\App\\App.csproj": {
+    "C:\\Users\\Fabio\\Desktop\\ProjetB2Dev\\ProjetDevB2\\App\\App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\cours\\ProjetDevB2Marketplace\\App\\App.csproj",
+        "projectUniqueName": "C:\\Users\\Fabio\\Desktop\\ProjetB2Dev\\ProjetDevB2\\App\\App.csproj",
         "projectName": "App",
-        "projectPath": "D:\\cours\\ProjetDevB2Marketplace\\App\\App.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\cours\\ProjetDevB2Marketplace\\App\\obj\\",
+        "projectPath": "C:\\Users\\Fabio\\Desktop\\ProjetB2Dev\\ProjetDevB2\\App\\App.csproj",
+        "packagesPath": "C:\\Users\\Fabio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Fabio\\Desktop\\ProjetB2Dev\\ProjetDevB2\\App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,38 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EFCore.NamingConventions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[6.0.4, )"
