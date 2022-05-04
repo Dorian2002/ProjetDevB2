@@ -24,7 +24,7 @@ public class HomeController : Controller
     }
     public IActionResult Login()
     {
-        return View();
+        return View("../Account/Login");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

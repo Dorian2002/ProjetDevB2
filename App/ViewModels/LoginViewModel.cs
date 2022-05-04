@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace App.ViewModels {
     public class LoginRequest {
         [Required]
