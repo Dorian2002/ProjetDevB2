@@ -20,7 +20,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options
-    .UseNpgsql("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root")
+    .UseNpgsql("AppIdentityDbContextConnection")
     .LogTo(Console.WriteLine, LogLevel.Information)
     .EnableSensitiveDataLogging()
     .EnableDetailedErrors()
