@@ -1,14 +1,23 @@
-namespace App.Models
+using System.ComponentModel.DataAnnotations;
+using App.Models;
+
+namespace App.ViewModels
 {
-    public class Article
+    public class CreateArticle
     {
-        public int Id { get; set; }
-        public Seller Seller { get; set; }
+        [Required]
         public string Name { get; set; }
+
+        [Required]
         public float Price { get; set; }
+
+        [Required]
         public string Description { get; set; }
+
+        [Required]
         public ICollection<Category> Categories { get; set; }
+
+        [Required]
         public string Location { get; set; }
-        public DateTime CreationDate { get; set; }
     }
 }
