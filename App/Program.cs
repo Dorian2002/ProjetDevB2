@@ -1,21 +1,30 @@
 
-using ProjetDevB2MarketPlace.Data;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
+using Microsoft.AspNetCore.Identity;
+using App.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root");;
+
+builder.Services.AddDbContext<IdentityDbContext>(options =>
+    options.UseNpgsql("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root"));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<IdentityDbContext>();
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AppDbContext>(
-    options => options
-    .UseNpgsql("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root")
-    .LogTo(Console.WriteLine, LogLevel.Information)
-    .EnableSensitiveDataLogging()
-    .EnableDetailedErrors()
-);
+//builder.Services.AddDbContext<ApplicationDbContext>(
+//    options => options
+//    .UseNpgsql("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root")
+//    .LogTo(Console.WriteLine, LogLevel.Information)
+//    .EnableSensitiveDataLogging()
+//    .EnableDetailedErrors()
+//);
 
 var app = builder.Build();
 
@@ -37,7 +46,8 @@ app.MapControllerRoute(
 app.MapFallbackToFile("index.html");
 
 using (var scope = app.Services.CreateScope()){
-    scope.ServiceProvider.GetRequiredService<AppDbContext>().Database.EnsureCreated();
+    scope.ServiceProvider.GetRequiredService<IdentityDbContext>().Database.EnsureCreated();
 }
+app.UseAuthentication();
 
 app.Run();

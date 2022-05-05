@@ -22,6 +22,14 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult Login()
+    {
+        return View("../Account/Login");
+    }
+    public IActionResult CreateArticle()
+    {
+        return View("../Seller/CreateArticle");
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

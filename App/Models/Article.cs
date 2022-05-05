@@ -1,4 +1,4 @@
-namespace ProjetDevB2MarketPlace.Models
+namespace App.Models
 {
     public class Article
     {
