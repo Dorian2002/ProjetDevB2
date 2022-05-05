@@ -16313,8 +16313,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\CreateArticle\\CreateArticle.cshtml",
-      "TargetPath": "Views\\CreateArticle\\CreateArticle.cshtml",
+      "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Seller\\CreateArticle.cshtml",
+      "TargetPath": "Views\\Seller\\CreateArticle.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16330,6 +16330,11 @@
     {
       "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Account\\Register.cshtml",
+      "TargetPath": "Views\\Account\\Register.cshtml",
       "FileKind": "mvc"
     },
     {
