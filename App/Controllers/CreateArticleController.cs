@@ -9,6 +9,7 @@ public class CreateArticleController : Controller
     public ActionResult Create(CreateArticle _article){
         Console.WriteLine(_article.Name + " :");
         Console.WriteLine(_article.Description);
+        Console.WriteLine(User);
         return View("../Seller/CreateArticle");
     }
 }

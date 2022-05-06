@@ -9,8 +9,7 @@ public class AccountController : Controller
 {
     private readonly UserManager<IdentityUser> userManager;
     private readonly SignInManager<IdentityUser> signInManager;
-    public AccountController(UserManager<IdentityUser> userManager, 
-                             SignInManager<IdentityUser> signInManager)
+    public AccountController(UserManager<IdentityUser> userManager,SignInManager<IdentityUser> signInManager)
     {
         this.userManager = userManager;
         this.signInManager = signInManager;
@@ -59,7 +58,7 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid){
             var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
-
+            Console.WriteLine(model.RememberMe);
             if (result.Succeeded)
             {
                 return RedirectToAction("Index", "Home");

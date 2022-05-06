@@ -11,20 +11,16 @@ var connectionString = builder.Configuration.GetConnectionString("Server=localho
 builder.Services.AddDbContext<IdentityDbContext>(options =>
     options.UseNpgsql("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root"));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddEntityFrameworkStores<IdentityDbContext>();
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<IdentityDbContext>();
 
 // Add services to the container.
-
 builder.Services.AddControllersWithViews();
 
-//builder.Services.AddDbContext<ApplicationDbContext>(
-//    options => options
-//    .UseNpgsql("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root")
-//    .LogTo(Console.WriteLine, LogLevel.Information)
-//    .EnableSensitiveDataLogging()
-//    .EnableDetailedErrors()
-//);
+
 
 var app = builder.Build();
 

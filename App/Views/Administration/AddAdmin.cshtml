@@ -1,0 +1,27 @@
+@model App.ViewModels.AddAdminViewModel
+@{
+    ViewData["Title"] = "Add New Admin";
+}
+
+<h1>Add New Admin</h1>
+
+<div class="row">
+    @using (Html.BeginForm("AddAdmin", "Administration", FormMethod.Post))
+    {
+        <div class="col-md-12">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <label>@ViewBag.ErrorMessage</label>
+                }
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <button style="width:auto" type="submit" class="btn btn-primary" asp-route-roleName="Admin">Add</button>
+            </form>
+        </div>
+    }
+</div>
