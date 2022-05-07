@@ -6,7 +6,7 @@ Développement d'une marketplace sur le principe de le bon coin.
 ## Techno
 * posgreSQL (bdd)
 * asp .NET (back)
-* angular,html,tailwindcss (front)
+* html,tailwindcss (front)
 
 ## Fonctionnalités 
 
