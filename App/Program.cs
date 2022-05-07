@@ -4,24 +4,20 @@ using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Microsoft.AspNetCore.Identity;
 using App.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using App.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root");;
 
-builder.Services.AddDbContext<IdentityDbContext>(options =>
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root"));
 
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-//    .AddEntityFrameworkStores<IdentityDbContext>();
-
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<IdentityDbContext>();
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+    //.AddUserStore<AppUserStore>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -42,7 +38,7 @@ app.MapControllerRoute(
 app.MapFallbackToFile("index.html");
 
 using (var scope = app.Services.CreateScope()){
-    scope.ServiceProvider.GetRequiredService<IdentityDbContext>().Database.EnsureCreated();
+    scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.EnsureCreated();
 }
 app.UseAuthentication();
 

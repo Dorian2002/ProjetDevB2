@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace App.Models
 {
     public class Chat
     {
         public int Id { get; set; }
-        public IdentityUser User;
-        public IdentityUser Seller;
+        public ApplicationUser User;
+        public ApplicationUser Seller;
     }
 }

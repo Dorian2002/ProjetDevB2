@@ -1,3 +1,4 @@
+using App.Models;
 using App.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -6,9 +7,9 @@ namespace App.Controllers
 {
     public class AdministrationController : Controller
     {
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly RoleManager<IdentityRole> roleManager;
-        public AdministrationController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly RoleManager<ApplicationRole> roleManager;
+        public AdministrationController(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
@@ -29,7 +30,7 @@ namespace App.Controllers
         {
             if(ModelState.IsValid)
             {
-                IdentityRole identityRole = new()
+                ApplicationRole identityRole = new()
                 {
                     Name = model.RoleName,
                 };

@@ -5,11 +5,9 @@ using App.Models;
 
 namespace App.Areas.Identity.Data;
 
-public class ApplicationDbContext
-            : IdentityDbContext<IdentityUser<int>,IdentityRole<int>,int>
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser,ApplicationRole,int>
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
 
@@ -30,10 +28,10 @@ public class ApplicationDbContext
             modelBuilder.Entity(entity.Name).ToTable(currentTableName.ToLower());
         }
     }
-        public DbSet<Article> Articles { get; set; }
-        public DbSet<Cart> Carts { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Chat> Chats { get; set; }
-        public DbSet<Favourite> Favourites { get; set; }
-        public DbSet<Message> Messages { get; set; }
+    public DbSet<Article> Articles { get; set; }
+    public DbSet<Cart> Carts { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Chat> Chats { get; set; }
+    public DbSet<Favourite> Favourites { get; set; }
+    public DbSet<Message> Messages { get; set; }
 }
