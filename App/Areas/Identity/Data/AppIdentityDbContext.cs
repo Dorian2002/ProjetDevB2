@@ -29,13 +29,11 @@ public class ApplicationDbContext
             var currentTableName = modelBuilder.Entity(entity.Name).Metadata.GetDefaultTableName();
             modelBuilder.Entity(entity.Name).ToTable(currentTableName.ToLower());
         }
-    } 
+    }
         public DbSet<Article> Articles { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Chat> Chats { get; set; }
         public DbSet<Favourite> Favourites { get; set; }
         public DbSet<Message> Messages { get; set; }
-        public DbSet<Seller> Sellers { get; set; }
-        public DbSet<User> Users { get; set; }
 }
