@@ -19,7 +19,7 @@ namespace App.Controllers
         {
             if (User.IsInRole("Admin"))
             {
-                return View("../Administration/AddAdmin");
+                return View("../Administration/CreateRole");
             }
             return RedirectToAction("Index", "Home");
         }
