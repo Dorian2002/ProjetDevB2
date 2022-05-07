@@ -17,7 +17,11 @@ namespace App.Controllers
         [HttpGet]
         public IActionResult CreateRole()
         {
-            return View("../Administration/CreateRole");
+            if (User.IsInRole("Admin"))
+            {
+                return View("../Administration/AddAdmin");
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -45,7 +49,11 @@ namespace App.Controllers
         [HttpGet]
         public IActionResult AddAdmin()
         {
-            return View("../Administration/AddAdmin");
+            if (User.IsInRole("Admin"))
+            {
+                return View("../Administration/AddAdmin");
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
