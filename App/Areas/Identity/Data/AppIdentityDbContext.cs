@@ -5,11 +5,15 @@ using App.Models;
 
 namespace App.Areas.Identity.Data;
 
-public class ApplicationDbContext
-            : IdentityDbContext<IdentityUser<int>,IdentityRole<int>,int>
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser,ApplicationRole,int>
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options)
+    public DbSet<Article> Articles { get; set; }
+    public DbSet<Cart> Carts { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Chat> Chats { get; set; }
+    public DbSet<Favourite> Favourites { get; set; }
+    public DbSet<Message> Messages { get; set; }
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
 
@@ -19,6 +23,10 @@ public class ApplicationDbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Article>()
+                .HasMany(a => a.Categories)
+                .WithMany(c => c.Articles)
+                .UsingEntity(join => join.ToTable("ArticlesCategories"));
         // PostgreSQL uses the public schema by default - not dbo.
         modelBuilder.HasDefaultSchema("public");
         base.OnModelCreating(modelBuilder);
@@ -29,13 +37,5 @@ public class ApplicationDbContext
             var currentTableName = modelBuilder.Entity(entity.Name).Metadata.GetDefaultTableName();
             modelBuilder.Entity(entity.Name).ToTable(currentTableName.ToLower());
         }
-    } 
-        public DbSet<Article> Articles { get; set; }
-        public DbSet<Cart> Carts { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Chat> Chats { get; set; }
-        public DbSet<Favourite> Favourites { get; set; }
-        public DbSet<Message> Messages { get; set; }
-        public DbSet<Seller> Sellers { get; set; }
-        public DbSet<User> Users { get; set; }
+    }
 }
