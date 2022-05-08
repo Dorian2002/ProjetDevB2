@@ -9,12 +9,13 @@ using App.Models;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root");;
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root"));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options
+    .UseNpgsql("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root"));
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
-    //.AddUserStore<AppUserStore>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -39,6 +40,7 @@ app.MapFallbackToFile("index.html");
 
 using (var scope = app.Services.CreateScope()){
     scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.EnsureCreated();
+    //scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Seed();
 }
 app.UseAuthentication();
 

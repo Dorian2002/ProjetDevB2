@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220507140934_UpdateModelCategory")]
-    partial class UpdateModelCategory
+    [Migration("20220507151530_UpdateModelCategory2")]
+    partial class UpdateModelCategory2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -229,10 +229,6 @@ namespace App.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("ArticleId")
-                        .HasColumnType("integer")
-                        .HasColumnName("article_id");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text")
@@ -240,9 +236,6 @@ namespace App.Migrations
 
                     b.HasKey("Id")
                         .HasName("pk_category");
-
-                    b.HasIndex("ArticleId")
-                        .HasDatabaseName("ix_category_article_id");
 
                     b.ToTable("category", "public");
                 });
@@ -301,6 +294,25 @@ namespace App.Migrations
                         .HasName("pk_message");
 
                     b.ToTable("message", "public");
+                });
+
+            modelBuilder.Entity("ArticleCategory", b =>
+                {
+                    b.Property<int>("ArticlesId")
+                        .HasColumnType("integer")
+                        .HasColumnName("articles_id");
+
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("integer")
+                        .HasColumnName("categories_id");
+
+                    b.HasKey("ArticlesId", "CategoriesId")
+                        .HasName("pk_articlecategory");
+
+                    b.HasIndex("CategoriesId")
+                        .HasDatabaseName("ix_articlecategory_categories_id");
+
+                    b.ToTable("articlecategory", "public");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -466,14 +478,6 @@ namespace App.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("App.Models.Category", b =>
-                {
-                    b.HasOne("App.Models.Article", null)
-                        .WithMany("Categories")
-                        .HasForeignKey("ArticleId")
-                        .HasConstraintName("fk_category_article_article_id");
-                });
-
             modelBuilder.Entity("App.Models.Favourite", b =>
                 {
                     b.HasOne("App.Models.ApplicationUser", "User")
@@ -484,6 +488,23 @@ namespace App.Migrations
                         .HasConstraintName("fk_favourite_applicationuser_user_id");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ArticleCategory", b =>
+                {
+                    b.HasOne("App.Models.Article", null)
+                        .WithMany()
+                        .HasForeignKey("ArticlesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_articlecategory_article_articles_id");
+
+                    b.HasOne("App.Models.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_articlecategory_category_categories_id");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -541,11 +562,6 @@ namespace App.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_identityusertoken_int_applicationuser_user_id");
-                });
-
-            modelBuilder.Entity("App.Models.Article", b =>
-                {
-                    b.Navigation("Categories");
                 });
 #pragma warning restore 612, 618
         }

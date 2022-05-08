@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220507133326_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220508090822_CreateArticles")]
+    partial class CreateArticles
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -140,6 +140,179 @@ namespace App.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("applicationuser", "public");
+                });
+
+            modelBuilder.Entity("App.Models.Article", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("creation_date");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("description");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("location");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("name");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real")
+                        .HasColumnName("price");
+
+                    b.Property<int>("SellerId")
+                        .HasColumnType("integer")
+                        .HasColumnName("seller_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_article");
+
+                    b.HasIndex("SellerId")
+                        .HasDatabaseName("ix_article_seller_id");
+
+                    b.ToTable("article", "public");
+                });
+
+            modelBuilder.Entity("App.Models.Cart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AddDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("add_date");
+
+                    b.Property<int>("ArticleId")
+                        .HasColumnType("integer")
+                        .HasColumnName("article_id");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_cart");
+
+                    b.HasIndex("ArticleId")
+                        .HasDatabaseName("ix_cart_article_id");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("ix_cart_user_id");
+
+                    b.ToTable("cart", "public");
+                });
+
+            modelBuilder.Entity("App.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("name");
+
+                    b.HasKey("Id")
+                        .HasName("pk_category");
+
+                    b.ToTable("category", "public");
+                });
+
+            modelBuilder.Entity("App.Models.Chat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.HasKey("Id")
+                        .HasName("pk_chat");
+
+                    b.ToTable("chat", "public");
+                });
+
+            modelBuilder.Entity("App.Models.Favourite", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ArticleId")
+                        .HasColumnType("integer")
+                        .HasColumnName("article_id");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_favourite");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("ix_favourite_user_id");
+
+                    b.ToTable("favourite", "public");
+                });
+
+            modelBuilder.Entity("App.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.HasKey("Id")
+                        .HasName("pk_message");
+
+                    b.ToTable("message", "public");
+                });
+
+            modelBuilder.Entity("ArticleCategory", b =>
+                {
+                    b.Property<int>("ArticlesId")
+                        .HasColumnType("integer")
+                        .HasColumnName("articles_id");
+
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("integer")
+                        .HasColumnName("categories_id");
+
+                    b.HasKey("ArticlesId", "CategoriesId")
+                        .HasName("pk_articlecategory");
+
+                    b.HasIndex("CategoriesId")
+                        .HasDatabaseName("ix_articlecategory_categories_id");
+
+                    b.ToTable("articlecategory", "public");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -270,6 +443,68 @@ namespace App.Migrations
                         .HasName("pk_identityusertoken_int");
 
                     b.ToTable("identityusertoken<int>", "public");
+                });
+
+            modelBuilder.Entity("App.Models.Article", b =>
+                {
+                    b.HasOne("App.Models.ApplicationUser", "Seller")
+                        .WithMany()
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_article_applicationuser_seller_id");
+
+                    b.Navigation("Seller");
+                });
+
+            modelBuilder.Entity("App.Models.Cart", b =>
+                {
+                    b.HasOne("App.Models.Article", "Article")
+                        .WithMany()
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_cart_article_article_id");
+
+                    b.HasOne("App.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_cart_applicationuser_user_id");
+
+                    b.Navigation("Article");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("App.Models.Favourite", b =>
+                {
+                    b.HasOne("App.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_favourite_applicationuser_user_id");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ArticleCategory", b =>
+                {
+                    b.HasOne("App.Models.Article", null)
+                        .WithMany()
+                        .HasForeignKey("ArticlesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_articlecategory_article_articles_id");
+
+                    b.HasOne("App.Models.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_articlecategory_category_categories_id");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

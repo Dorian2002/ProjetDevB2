@@ -30,7 +30,7 @@
                         @if(signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateArticle">CreateArticle</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="CreateArticle" asp-action="CreateArticle">CreateArticle</a>
                             </li>
                             @if(User.IsInRole("Admin")){
                                 <li class="nav-item">

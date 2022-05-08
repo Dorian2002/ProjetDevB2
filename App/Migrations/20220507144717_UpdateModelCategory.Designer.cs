@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220507133525_AddAppModels")]
-    partial class AddAppModels
+    [Migration("20220507144717_UpdateModelCategory")]
+    partial class UpdateModelCategory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
