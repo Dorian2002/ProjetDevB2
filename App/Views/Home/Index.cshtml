@@ -4,5 +4,21 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div>
+        @foreach (Article item in @Model)
+        {
+            <div>
+                <div class="card border-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">@item.Name</div>
+                    <div class="card-body">
+                        <img src="../../assets/images/defaultArticleImg.png" alt="Sample Photo" />
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-text">@item.Price €</p>
+                        @Html.ActionLink("Details","Details","Articles", new { id=item.Id })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>

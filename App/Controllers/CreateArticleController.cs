@@ -9,19 +9,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace App.Controllers;
 public class CreateArticleController : Controller
 {
-    private readonly ApplicationDbContext dbContext;
-    private readonly UserManager<ApplicationUser> userManager;
+    private readonly ApplicationDbContext _dbContext;
+    private readonly UserManager<ApplicationUser> _userManager;
     public CreateArticleController(UserManager<ApplicationUser> userManager, ApplicationDbContext dbContext)
     {
-        this.dbContext = dbContext;
-        this.userManager = userManager;
+        _dbContext = dbContext;
+        _userManager = userManager;
     }
 
     [HttpGet]
     public IActionResult CreateArticle()
     {
         //IEnumerable<SelectListItem> Categories = new MultiSelectList(dbContext.Categories, "Id", "Name");
-        ViewBag.Categories = new MultiSelectList(dbContext.Categories, "Id", "Name");
+        ViewBag.Categories = new MultiSelectList(_dbContext.Categories, "Id", "Name");
         return View("../Seller/CreateArticle");
     }
 
@@ -32,9 +32,9 @@ public class CreateArticleController : Controller
         {
             _article.Categories = new List<Category>();
             foreach(var id in catogoryList){
-                _article.Categories.Add(dbContext.Categories.FirstOrDefault(c => c.Id == id));
+                _article.Categories.Add(_dbContext.Categories.FirstOrDefault(c => c.Id == id));
             }
-            var user = await userManager.FindByNameAsync(User.Identity.Name);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
             Article newArticle = new()
             {
                 Seller = user,
@@ -45,15 +45,15 @@ public class CreateArticleController : Controller
                 Location = _article.Location,
                 Categories = _article.Categories,
             };
-            dbContext.Articles.Add(newArticle);
-            dbContext.SaveChanges();
+            _dbContext.Articles.Add(newArticle);
+            _dbContext.SaveChanges();
         }else{
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             foreach(var e in errors){
                 Console.WriteLine(e.ErrorMessage);
             }
         }
-        ViewBag.Categories = new MultiSelectList(dbContext.Categories, "Id", "Name");
+        ViewBag.Categories = new MultiSelectList(_dbContext.Categories, "Id", "Name");
         return View("../Seller/CreateArticle");
     }
 }
