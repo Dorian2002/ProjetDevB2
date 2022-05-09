@@ -9544,19 +9544,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\Fabio\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\cours\\ProjetDevB2\\App\\App.csproj",
+      "projectUniqueName": "C:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\App.csproj",
       "projectName": "App",
-      "projectPath": "D:\\cours\\ProjetDevB2\\App\\App.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\cours\\ProjetDevB2\\App\\obj\\",
+      "projectPath": "C:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\App.csproj",
+      "packagesPath": "C:\\Users\\Fabio\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9636,13 +9636,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problème de lecture du fichier cache D:\\cours\\ProjetDevB2\\App\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
