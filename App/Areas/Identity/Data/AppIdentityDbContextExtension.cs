@@ -27,6 +27,12 @@ public static class AppIdentityDbContextExtension
             },
         };
         dbContext.Categories.AddRange(Categories);
+        var Roles = new List<ApplicationRole>() {
+            new ApplicationRole(){
+                Name="Admin"
+            }
+        };
+        dbContext.Roles.AddRange(Roles);
         dbContext.SaveChanges();
     }
 }
