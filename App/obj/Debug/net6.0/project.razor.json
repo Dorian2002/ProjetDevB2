@@ -16348,6 +16348,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\33785\\Desktop\\ProjetDev\\ProjetDevB2\\App\\Views\\Articles\\Store.cshtml",
+      "TargetPath": "Views\\Articles\\Store.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\33785\\Desktop\\ProjetDev\\ProjetDevB2\\App\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
       "FileKind": "mvc"
