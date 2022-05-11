@@ -1,11 +1,15 @@
 using System.ComponentModel.DataAnnotations;
+using App.Models;
 
 namespace App.ViewModels
 {
-    public class AddAdminViewModel
+    public class AddAdmin
     {
         [Required]
-        [EmailAddress]
+        public string RoleName { get; set; }
+        [Required]
         public string Email { get; set; }
+
+        public IList<ApplicationUser> UserList { get; set; }
     }
 }

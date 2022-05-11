@@ -34,6 +34,7 @@ public class AccountController : Controller
 
             if (result.Succeeded)
             {
+                await userManager.AddToRoleAsync(user, "User");
                 await signInManager.SignInAsync(user, isPersistent: false);
                 return RedirectToAction("Index", "Home");
             }
@@ -74,40 +75,47 @@ public class AccountController : Controller
     }
 
     [HttpGet]
-    public IActionResult Profile(int Id)
+    public IActionResult Profile(int Id, bool modifiedByAdmin)
     {
-        var user = userManager.FindByIdAsync(Id.ToString());
-        ProfileRequest model = new ProfileRequest{UserName=user.Result.UserName, Email=user.Result.Email};
-        return View("../Account/Profile", model);
+        if (signInManager.IsSignedIn(User)){
+            var user = userManager.FindByIdAsync(Id.ToString());
+            ProfileRequest model = new() { OldUserName=user.Result.UserName, UserName=user.Result.UserName, Email=user.Result.Email, ModifiedByAdmin=modifiedByAdmin};
+            return View("../Account/Profile", model);
+        }
+        return RedirectToAction("Index", "Home");
     }
 
     [HttpPost]
-    public async Task<IActionResult> Profile(ProfileRequest model)
+    public async Task<IActionResult> EditProfile(ProfileRequest model)
     {
         if (ModelState.IsValid){
-            var user = userManager.FindByEmailAsync(model.Email).Result;
+            var user = userManager.FindByNameAsync(model.OldUserName).Result;
             if (model.NewPassword != "" && model.NewPassword != null){
-                var newPasswordHash = userManager.PasswordHasher.HashPassword(userManager.FindByEmailAsync(model.Email).Result,model.NewPassword);
+                var newPasswordHash = userManager.PasswordHasher.HashPassword(userManager.FindByNameAsync(model.OldUserName).Result,model.NewPassword);
                 user.Email = model.Email;
                 user.UserName = model.UserName;
                 user.PasswordHash = newPasswordHash;
                 _dbContext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 var result = await userManager.UpdateAsync(user);
-                await signInManager.SignInAsync(user, isPersistent: false);
+                if (!model.ModifiedByAdmin) {
+                    await signInManager.SignInAsync(user, isPersistent: false);
+                }
             }else{
                 user.Email = model.Email;
                 user.UserName = model.UserName;
                 _dbContext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 var result = await userManager.UpdateAsync(user);
-                await signInManager.SignInAsync(user, isPersistent: false);
+                if (!model.ModifiedByAdmin) {
+                    await signInManager.SignInAsync(user, isPersistent: false);
+                }
             }
-            return RedirectToAction("Index", "Home");
+            return View();
         }else{
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             foreach(var e in errors){
                 Console.WriteLine(e.ErrorMessage);
             }
-            return View(model);
+            return View("../Account/Profile", model);
         }
     }
 }

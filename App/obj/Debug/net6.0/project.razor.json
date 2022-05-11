@@ -16328,11 +16328,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Administration\\AddAdmin.cshtml",
-      "TargetPath": "Views\\Administration\\AddAdmin.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
@@ -16365,6 +16360,11 @@
     {
       "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Administration\\UserManager.cshtml",
+      "TargetPath": "Views\\Administration\\UserManager.cshtml",
       "FileKind": "mvc"
     },
     {

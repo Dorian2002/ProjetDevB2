@@ -34,7 +34,7 @@
                             </li>
                             @if(User.IsInRole("Admin")){
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Administration" asp-action="AddAdmin">Add Admin</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Administration" asp-action="UserManager">User Manager</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Administration" asp-action="CreateRole">Create Role</a>
@@ -45,11 +45,11 @@
                     <ul class="navbar-nav ml-auto">
                         @if(signInManager.IsSignedIn(User))
                         {
-                            <form method="get" asp-action="Profile" asp-controller="Account" asp-route-Id=@signInManager.UserManager.GetUserId(@User)>
+                            <form method="get">
                                 <li class="nav-item">
-                                    <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
+                                    <a type="submit" class="nav-link btn btn-link py-0" style="width:auto" asp-action="Profile" asp-controller="Account" asp-route-Id=@signInManager.UserManager.GetUserId(@User) asp-route-modifiedByAdmin=@false>
                                         @User.Identity.Name
-                                    </button>
+                                    </a>
                                 </li>
                             </form>
                             <form method="post" asp-action="Logout" asp-controller="Account">

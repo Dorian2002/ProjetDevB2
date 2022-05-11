@@ -1,0 +1,30 @@
+@model App.ViewModels.AddAdmin
+@{
+    ViewData["Title"] = "User Manager";
+}
+
+<h1>User Manager</h1>
+
+<div class="row">
+    @if (@Model.UserList.Count > 0){
+        @using (Html.BeginForm("AddAdmin", "Administration", FormMethod.Post)){
+            @foreach (var user in Model.UserList)
+            {
+                <div class="card border-primary mb-3">
+                    <div class="card-body">
+                        <li>@user.UserName | @user.Email
+                            <a style="width:auto" type="submit" class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Profile" asp-route-Id=@user.Id asp-route-modifiedByAdmin=@User.IsInRole("Admin")>Profile</a>
+                            <input type="hidden" asp-for="Email" class="form-control" value=@user.Email/>
+                            <input type="hidden" asp-for="RoleName" class="form-control" value="Admin"/>
+                            <button style="width:auto" type="submit" class="btn btn-primary">Promote Admin</button>
+                            @if (ViewBag.ErrorMessage != null)
+                            {
+                                <label class="text-danger">@ViewBag.ErrorMessage</label>
+                            }
+                        </li>   
+                    </div>
+                </div>
+            }
+        }
+    }
+</div>

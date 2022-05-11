@@ -2,6 +2,7 @@ using App.Models;
 using App.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Controllers
 {
@@ -48,35 +49,26 @@ namespace App.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddAdmin()
+        public IActionResult UserManager()
         {
             if (User.IsInRole("Admin"))
             {
-                return View("../Administration/AddAdmin");
+                var users = userManager.GetUsersInRoleAsync("User");
+                AddAdmin model = new() {Email="", UserList=users.Result, RoleName=""};
+                return View("../Administration/UserManager", model);
             }
             return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAdmin(string roleName, AddAdminViewModel model)
+        public async Task<IActionResult> AddAdmin(AddAdmin model)
         {
-            if(ModelState.IsValid)
-            {
-                var user = await userManager.FindByEmailAsync(model.Email);
-
-                if (user == null)
-                {
-                    ViewBag.ErrorMessage = $"user with email : {model.Email} cannot be found";
-                    return View("../Administration/AddAdmin");
-                }
-
-                IdentityResult result = await userManager.AddToRoleAsync(user, roleName);
-
-                foreach(IdentityError error in result.Errors){
-                    ModelState.AddModelError("", error.Description);
-                }
-            }
-            return View(model);
+            Console.WriteLine(model.Email);
+            Console.WriteLine(model.RoleName);
+            var user = await userManager.FindByEmailAsync(model.Email);
+            await userManager.RemoveFromRoleAsync(user, "User");
+            IdentityResult result = await userManager.AddToRoleAsync(user, model.RoleName);
+            return View(("../Administration/UserManager", model));
         }
     }
 }

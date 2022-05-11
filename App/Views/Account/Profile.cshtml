@@ -6,11 +6,14 @@
 <h1>Profile</h1>
 
 <div class="row">
-    @using (Html.BeginForm("Profile", "Account", FormMethod.Post))
+    @using (Html.BeginForm("EditProfile", "Account", FormMethod.Post))
     {
         <div class="col-md-12">
             <form method="post">
                 <div asp-validation-summary="All" class="text-danger"></div>
+                <input type="hidden" asp-for="OldUserName" class="form-control" aria-placeholder=@Model.OldUserName/>
+                <input type="hidden" asp-for="ModifiedByAdmin" class="form-control" aria-placeholder=@Model.ModifiedByAdmin/>
+
                 <div class="form-group">
                     <label asp-for="UserName"></label>
                     <input asp-for="UserName" class="form-control" aria-placeholder=@Model.UserName/>

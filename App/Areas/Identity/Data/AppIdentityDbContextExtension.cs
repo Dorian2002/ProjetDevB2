@@ -29,7 +29,12 @@ public static class AppIdentityDbContextExtension
         dbContext.Categories.AddRange(Categories);
         var Roles = new List<ApplicationRole>() {
             new ApplicationRole(){
-                Name="Admin"
+                Name="Admin",
+                NormalizedName ="ADMIN"
+            },
+            new ApplicationRole(){
+                Name="User",
+                NormalizedName ="USER"
             }
         };
         dbContext.Roles.AddRange(Roles);
