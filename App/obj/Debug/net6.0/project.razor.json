@@ -16313,6 +16313,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Account\\Profile.cshtml",
+      "TargetPath": "Views\\Account\\Profile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Seller\\CreateArticle.cshtml",
       "TargetPath": "Views\\Seller\\CreateArticle.cshtml",
       "FileKind": "mvc"

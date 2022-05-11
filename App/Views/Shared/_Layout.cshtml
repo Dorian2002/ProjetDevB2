@@ -45,13 +45,20 @@
                     <ul class="navbar-nav ml-auto">
                         @if(signInManager.IsSignedIn(User))
                         {
-                            <li class="nav-item">
-                                <form method="post" asp-action="logout" asp-controller="Account">
+                            <form method="get" asp-action="Profile" asp-controller="Account" asp-route-Id=@signInManager.UserManager.GetUserId(@User)>
+                                <li class="nav-item">
                                     <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
-                                        Logout @User.Identity.Name
+                                        @User.Identity.Name
                                     </button>
-                                </form>
-                            </li>
+                                </li>
+                            </form>
+                            <form method="post" asp-action="Logout" asp-controller="Account">
+                                <li class="nav-item">
+                                    <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
+                                        Logout
+                                    </button>
+                                </li>
+                            </form>
                         }else{
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
