@@ -16348,6 +16348,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Articles\\Store.cshtml",
+      "TargetPath": "Views\\Articles\\Store.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Account\\Login.cshtml",
       "TargetPath": "Views\\Account\\Login.cshtml",
       "FileKind": "mvc"

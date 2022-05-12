@@ -17,19 +17,19 @@
             diag = new google.maps.Map(document.getElementById('map_populate'), diagChoice);  
         }  
         function getmap(compl) {
-            mapcode.geocode({ 'address': completeaddress }, function (results, status) {  
-                if (status == google.maps.GeocoderStatus.OK) {  
-                    diag.setCenter(results[0].geometry.location);  
-                    var hint = new google.maps.Marker({  
-                        diag: diag,  
-                        position: results[0].geometry.location  
-                    });  
-                } else {  
-                    alert('Location Not Tracked. ' + status);  
-                }  
-            });  
+            mapcode.geocode({ 'address': completeaddress }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    diag.setCenter(results[0].geometry.location);
+                    var hint = new google.maps.Marker({
+                        diag: diag,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Location Not Tracked. ' + status);
+                }
+            });
         }
-        google.maps.event.addDomListener(window, 'load', initialize);  
+        google.maps.event.addDomListener(window, 'load', initialize);
     </script>  
   
     </html>  
@@ -37,10 +37,10 @@
 <body>
     <div>
         <div style="display: flex,flex-direction:row">
-            <div class="card border-primary mb-4" style="max-width: 20rem;">
-                <img src="../../assets/images/defaultArticleImg.png" alt="Sample Photo" style="justify-content: flex-start;" />
+            <div class="card border-secondary mb-4" style="max-width: 20rem;">
+                <img src="../assets/images/defaultArticleImg.png" alt="Sample Photo" style="justify-content: flex-start;" />
             </div> 
-            <div  class="card border-primary mb-4" style="display: flex;">
+            <div  class="card border-dark mb-4" style="display: flex;">
                 <div class="card-header">
                     <h2 class="display-3">@Model.Name</h1>
                 </div>

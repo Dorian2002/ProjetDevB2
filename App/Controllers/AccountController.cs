@@ -37,7 +37,7 @@ public class AccountController : Controller
     public async Task<IActionResult> Register(RegisterRequest model)
     {
         if (ModelState.IsValid){
-            var user = new ApplicationUser {UserName = model.Email, Email = model.Email, EmailConfirmed = true };
+            var user = new ApplicationUser {UserName = model.UserName, Email = model.Email, EmailConfirmed = true };
             var result = await userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
@@ -57,13 +57,12 @@ public class AccountController : Controller
     public async Task<IActionResult> Login(LoginRequest model)
     {
         if (ModelState.IsValid){
-            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
-            Console.WriteLine(model.RememberMe);
+            var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
             if (result.Succeeded)
             {
                 return RedirectToAction("Index", "Home");
             }
-
+            Console.WriteLine(result.Succeeded);
             ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
         }
         return View(model);
