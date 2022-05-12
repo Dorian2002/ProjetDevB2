@@ -40,7 +40,7 @@ app.MapFallbackToFile("index.html");
 
 using (var scope = app.Services.CreateScope()){
     scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.EnsureCreated();
-    //scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Seed();
+    scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Seed();
 }
 app.UseAuthentication();
 

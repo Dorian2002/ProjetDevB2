@@ -1,0 +1,44 @@
+@model App.ViewModels.ProfileRequest
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h1>Profile</h1>
+
+<div class="row">
+    @using (Html.BeginForm("EditProfile", "Account", FormMethod.Post))
+    {
+        <div class="col-md-12">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <input type="hidden" asp-for="OldUserName" class="form-control" aria-placeholder=@Model.OldUserName/>
+                <input type="hidden" asp-for="ModifiedByAdmin" class="form-control" aria-placeholder=@Model.ModifiedByAdmin/>
+
+                <div class="form-group">
+                    <label asp-for="UserName"></label>
+                    <input asp-for="UserName" class="form-control" aria-placeholder=@Model.UserName/>
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" aria-placeholder=@Model.Email/>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="NewPassword">New Password</label>
+                    <input asp-for="NewPassword" class="form-control" />
+                    <span asp-validation-for="NewPassword" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ConfirmNewPassword">Confirm New Password</label>
+                    <input asp-for="ConfirmNewPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmNewPassword" class="text-danger"></span>
+                </div>
+                <button style="width:auto" type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    }
+</div>

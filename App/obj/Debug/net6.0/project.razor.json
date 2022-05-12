@@ -16308,11 +16308,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Administration\\AddAdmin.cshtml",
-      "TargetPath": "Views\\Administration\\AddAdmin.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
       "FileKind": "mvc"
@@ -16330,6 +16325,11 @@
     {
       "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Account\\Profile.cshtml",
+      "TargetPath": "Views\\Account\\Profile.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16360,6 +16360,11 @@
     {
       "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Administration\\CreateRole.cshtml",
       "TargetPath": "Views\\Administration\\CreateRole.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Administration\\UserManager.cshtml",
+      "TargetPath": "Views\\Administration\\UserManager.cshtml",
       "FileKind": "mvc"
     },
     {
