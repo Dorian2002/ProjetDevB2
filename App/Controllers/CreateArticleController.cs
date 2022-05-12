@@ -47,6 +47,8 @@ public class CreateArticleController : Controller
             };
             _dbContext.Articles.Add(newArticle);
             _dbContext.SaveChanges();
+            Console.WriteLine(user.Id + " rfdsgseh");
+            return RedirectToAction("UserStore","Store",new { user.Id });
         }else{
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             foreach(var e in errors){
