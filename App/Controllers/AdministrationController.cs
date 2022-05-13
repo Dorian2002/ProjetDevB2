@@ -63,12 +63,30 @@ namespace App.Controllers
         [HttpPost]
         public async Task<IActionResult> AddAdmin(AddAdmin model)
         {
-            Console.WriteLine(model.Email);
-            Console.WriteLine(model.RoleName);
             var user = await userManager.FindByEmailAsync(model.Email);
             await userManager.RemoveFromRoleAsync(user, "User");
             IdentityResult result = await userManager.AddToRoleAsync(user, model.RoleName);
-            return View(("../Administration/UserManager", model));
+            if (result.Succeeded){
+                return RedirectToAction("UserManager");
+            }
+            foreach(IdentityError error in result.Errors){
+                ModelState.AddModelError("", error.Description);
+            }
+            return RedirectToAction("UserManager");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteUser(int Id)
+        {
+            var user = await userManager.FindByIdAsync(Id.ToString());
+            IdentityResult result = await userManager.DeleteAsync(user);
+            if (result.Succeeded){
+                return RedirectToAction("UserManager");
+            }
+            foreach(IdentityError error in result.Errors){
+                ModelState.AddModelError("", error.Description);
+            }
+            return RedirectToAction("UserManager");
         }
     }
 }

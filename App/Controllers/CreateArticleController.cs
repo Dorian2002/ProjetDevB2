@@ -22,7 +22,7 @@ public class CreateArticleController : Controller
     {
         //IEnumerable<SelectListItem> Categories = new MultiSelectList(dbContext.Categories, "Id", "Name");
         ViewBag.Categories = new MultiSelectList(_dbContext.Categories, "Id", "Name");
-        return View("../Seller/CreateArticle");
+        return View("../Articles/CreateArticle");
     }
 
     [HttpPost]
@@ -47,6 +47,8 @@ public class CreateArticleController : Controller
             };
             _dbContext.Articles.Add(newArticle);
             _dbContext.SaveChanges();
+            Console.WriteLine(user.Id + " rfdsgseh");
+            return RedirectToAction("UserStore","Store",new { user.Id });
         }else{
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             foreach(var e in errors){
@@ -54,6 +56,6 @@ public class CreateArticleController : Controller
             }
         }
         ViewBag.Categories = new MultiSelectList(_dbContext.Categories, "Id", "Name");
-        return View("../Seller/CreateArticle");
+        return View("../Articles/CreateArticle");
     }
 }

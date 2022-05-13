@@ -16303,11 +16303,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Seller\\CreateArticle.cshtml",
-      "TargetPath": "Views\\Seller\\CreateArticle.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
       "FileKind": "mvc"
@@ -16338,6 +16333,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Articles\\CreateArticle.cshtml",
+      "TargetPath": "Views\\Articles\\CreateArticle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Articles\\Details.cshtml",
       "TargetPath": "Views\\Articles\\Details.cshtml",
       "FileKind": "mvc"
@@ -16365,6 +16365,11 @@
     {
       "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Administration\\UserManager.cshtml",
       "TargetPath": "Views\\Administration\\UserManager.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Articles\\Cart.cshtml",
+      "TargetPath": "Views\\Articles\\Cart.cshtml",
       "FileKind": "mvc"
     },
     {

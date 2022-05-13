@@ -107,9 +107,11 @@ public class AccountController : Controller
                 var result = await userManager.UpdateAsync(user);
                 if (!model.ModifiedByAdmin) {
                     await signInManager.SignInAsync(user, isPersistent: false);
+                }else{
+                    return RedirectToAction("UserManager", "Administration");
                 }
             }
-            return View();
+            return RedirectToAction("Index", "Home");
         }else{
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             foreach(var e in errors){

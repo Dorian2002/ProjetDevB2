@@ -1,4 +1,3 @@
-
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Microsoft.AspNetCore.Identity;
@@ -39,8 +38,8 @@ app.MapControllerRoute(
 app.MapFallbackToFile("index.html");
 
 using (var scope = app.Services.CreateScope()){
-    scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.EnsureCreated();
-    // scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Seed();
+    var result = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.EnsureCreated();
+    //scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Seed();
 }
 app.UseAuthentication();
 
