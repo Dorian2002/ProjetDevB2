@@ -1,0 +1,32 @@
+@model App.ViewModels.CartArticles
+<div>
+    @if (Model.Articles.Count() != 0)
+    {
+        <h2>Your Cart</h2>
+        <div>
+            @foreach (Cart item in @Model.Articles)
+            {
+                <div>
+                    <div class="card border-primary mb-3" style="max-width: 20rem;">
+                        <div class="card-header">@item.Article.Name</div>
+                        <div class="card-body">
+                            <img src="../../assets/images/defaultArticleImg.png" alt="Sample Photo" />
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text">@item.Article.Price €</p>
+                            <div>
+                                <a style="width:auto" type="button" class="btn btn-primary" asp-area="" asp-controller="Articles" asp-action="Details" asp-route-id="@item.Article.Id">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div>
+                <h3>Total : @Model.TotalPrice €</h3>
+                <a style="width:auto" type="button" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+    }else{
+        <h2>Your Cart is empty</h2>
+    }
+</div>

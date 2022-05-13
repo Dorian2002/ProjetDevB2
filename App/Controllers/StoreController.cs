@@ -15,7 +15,6 @@ public class StoreController : Controller
     [HttpGet]
     public IActionResult UserStore(int Id)
     {
-        Console.WriteLine(Id);
         var Articles = _dbContext.Articles.Include(a => a.Seller).Where(a => a.Seller.Id == Id).OrderBy(a => a.CreationDate).ToList();
         return View("../Articles/Store", Articles);
     }

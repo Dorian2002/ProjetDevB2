@@ -8,81 +8,85 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = App
 build_property.RootNamespace = App
-build_property.ProjectDir = d:\cours\ProjetDevB2\App\
+build_property.ProjectDir = D:\cours\ProjetDevB2\App\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = d:\cours\ProjetDevB2\App
+build_property.MSBuildProjectDirectory = D:\cours\ProjetDevB2\App
 build_property._RazorSourceGeneratorDebug = 
 
-[d:/cours/ProjetDevB2/App/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[D:/cours/ProjetDevB2/App/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/cours/ProjetDevB2/App/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Account/Login.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Account/Profile.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Account/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Account/Register.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Administration/CreateRole.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Administration/CreateRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cQ3JlYXRlUm9sZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Administration/UserManager.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Administration/UserManager.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cVXNlck1hbmFnZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Articles/Details.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Articles/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZXNcQ2FydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/cours/ProjetDevB2/App/Views/Articles/CreateArticle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZXNcQ3JlYXRlQXJ0aWNsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/cours/ProjetDevB2/App/Views/Articles/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Articles/Store.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Articles/Store.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZXNcU3RvcmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Home/Index.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Home/Privacy.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Seller/CreateArticle.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsbGVyXENyZWF0ZUFydGljbGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[d:/cours/ProjetDevB2/App/Views/Shared/Error.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Shared/_LoginPartial.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/_ViewImports.cshtml]
+[D:/cours/ProjetDevB2/App/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/_ViewStart.cshtml]
+[D:/cours/ProjetDevB2/App/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/cours/ProjetDevB2/App/Views/Shared/_Layout.cshtml]
+[D:/cours/ProjetDevB2/App/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-78367sr58w

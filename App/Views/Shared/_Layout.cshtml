@@ -47,6 +47,13 @@
                         {
                             <form method="get">
                                 <li class="nav-item">
+                                    <a type="submit" class="nav-link btn btn-link py-0" style="width:auto" asp-action="Cart" asp-controller="Articles">
+                                        Cart
+                                    </a>
+                                </li>
+                            </form>
+                            <form method="get">
+                                <li class="nav-item">
                                     <a type="submit" class="nav-link btn btn-link py-0" style="width:auto" asp-action="Profile" asp-controller="Account" asp-route-Id=@signInManager.UserManager.GetUserId(@User) asp-route-modifiedByAdmin=@false>
                                         @User.Identity.Name
                                     </a>

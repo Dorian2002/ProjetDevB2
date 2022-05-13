@@ -22,7 +22,7 @@ public class CreateArticleController : Controller
     {
         //IEnumerable<SelectListItem> Categories = new MultiSelectList(dbContext.Categories, "Id", "Name");
         ViewBag.Categories = new MultiSelectList(_dbContext.Categories, "Id", "Name");
-        return View("../Seller/CreateArticle");
+        return View("../Articles/CreateArticle");
     }
 
     [HttpPost]
@@ -56,6 +56,6 @@ public class CreateArticleController : Controller
             }
         }
         ViewBag.Categories = new MultiSelectList(_dbContext.Categories, "Id", "Name");
-        return View("../Seller/CreateArticle");
+        return View("../Articles/CreateArticle");
     }
 }

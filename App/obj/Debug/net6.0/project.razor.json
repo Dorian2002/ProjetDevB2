@@ -16318,11 +16318,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Seller\\CreateArticle.cshtml",
-      "TargetPath": "Views\\Seller\\CreateArticle.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Administration\\CreateRole.cshtml",
       "TargetPath": "Views\\Administration\\CreateRole.cshtml",
       "FileKind": "mvc"
@@ -16360,6 +16355,16 @@
     {
       "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Articles\\CreateArticle.cshtml",
+      "TargetPath": "Views\\Articles\\CreateArticle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\cours\\ProjetDevB2\\App\\Views\\Articles\\Cart.cshtml",
+      "TargetPath": "Views\\Articles\\Cart.cshtml",
       "FileKind": "mvc"
     },
     {
