@@ -60,6 +60,7 @@
                 </div>
                 <div class="card-footer">
                     <p class="card-text">Sell by @Model.Article.Seller.UserName</p>
+                    <a style="width:auto" type="button" class="btn btn-primary" asp-area="" asp-controller="Store" asp-action="UserStore" asp-route-Id=@Model.Article.Seller.Id>Go to @Model.Article.Seller.UserName's Store</a>
                     <p class="card-text" style="justify-content: end;">@Model.Article.CreationDate</p>
                 </div>
             </div>

@@ -3,7 +3,9 @@
     {
         <h2>@Model[0].Seller.UserName's Store</h2>
         <div>
-            <a style="width:auto" type="button" class="btn btn-primary" asp-area="" asp-controller="CreateArticle" asp-action="CreateArticle">Create New Article</a>
+            @if (@User.Identity.Name == @Model[0].Seller.UserName){
+                <a style="width:auto" type="button" class="btn btn-primary" asp-area="" asp-controller="CreateArticle" asp-action="CreateArticle">Create New Article</a>
+            }
             @foreach (Article item in @Model)
             {
                 <div>
@@ -15,8 +17,13 @@
                         <div class="card-footer">
                             <p class="card-text">@item.Price €</p>
                             <div>
-                                <a style="width:auto" type="button" class="btn btn-primary" asp-area="" asp-controller="Articles" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                <a style="width:auto" type="button" class="btn btn-primary" asp-controller="Articles" asp-action="Details" asp-route-id="@item.Id">Details</a>
                             </div>
+                            @if (@User.Identity.Name == @item.Seller.UserName || @User.IsInRole("Admin")){
+                                <div>
+                                    <a style="width:auto" type="button" class="btn btn-primary" asp-controller="Store" asp-action="DeleteFromStore" asp-route-articleId="@item.Id">Delete from Store</a>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

@@ -97,18 +97,50 @@ public class AccountController : Controller
                 user.PasswordHash = newPasswordHash;
                 _dbContext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 var result = await userManager.UpdateAsync(user);
-                if (!model.ModifiedByAdmin) {
+                foreach(var err in result.Errors){
+                    if (err.Code == "DuplicateUserName"){
+                        ModelState.AddModelError("UserName","This username is already used.");
+                    }
+                    if (err.Code == "DuplicateEmail"){
+                        ModelState.AddModelError("Email","This email is already used.");
+                    }
+                }
+                if (result.Succeeded && !model.ModifiedByAdmin)
+                {
                     await signInManager.SignInAsync(user, isPersistent: false);
+                }
+                else if (result.Succeeded)
+                {
+                    return RedirectToAction("UserManager", "Administration");
+                }
+                else if (!result.Succeeded)
+                {
+                    return View("../Account/Profile", model);
                 }
             }else{
                 user.Email = model.Email;
                 user.UserName = model.UserName;
                 _dbContext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 var result = await userManager.UpdateAsync(user);
-                if (!model.ModifiedByAdmin) {
+                foreach(var err in result.Errors){
+                    if (err.Code == "DuplicateUserName"){
+                        ModelState.AddModelError("UserName","This username is already used.");
+                    }
+                    if (err.Code == "DuplicateEmail"){
+                        ModelState.AddModelError("Email","This email is already used.");
+                    }
+                }
+                if (result.Succeeded && !model.ModifiedByAdmin)
+                {
                     await signInManager.SignInAsync(user, isPersistent: false);
-                }else{
+                }
+                else if (result.Succeeded)
+                {
                     return RedirectToAction("UserManager", "Administration");
+                }
+                else if (!result.Succeeded)
+                {
+                    return View("../Account/Profile", model);
                 }
             }
             return RedirectToAction("Index", "Home");

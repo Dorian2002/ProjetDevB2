@@ -14,6 +14,7 @@ namespace App.ViewModels {
         public string Email { get; set; }
 
         [DataType(DataType.Password)]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$",ErrorMessage ="Password must be at least 8 characters long, have 1 uppercase, 1 lowercase, 1 number and 1 special character.")]
         public string? NewPassword { get; set; }
 
         [DataType(DataType.Password)]
