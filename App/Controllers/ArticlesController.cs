@@ -49,5 +49,14 @@ namespace App.Controllers
             _dbContext.SaveChanges();
             return RedirectToAction("Cart");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> RemoveFromCart(int cartId)
+        {
+            Cart toRemove = _dbContext.Carts.First(c => c.Id == cartId);
+            _dbContext.Carts.Remove(toRemove);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Cart");
+        }
     }
 }
