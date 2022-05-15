@@ -16298,6 +16298,7 @@
   "RootNamespace": "App",
   "Documents": [
     {
+<<<<<<< HEAD
       "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Articles\\Search.cshtml",
       "TargetPath": "Views\\Articles\\Search.cshtml",
       "FileKind": "mvc"
@@ -16393,6 +16394,98 @@
       "FileKind": "mvc"
     },
     {
+=======
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Account\\Profile.cshtml",
+      "TargetPath": "Views\\Account\\Profile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Articles\\CreateArticle.cshtml",
+      "TargetPath": "Views\\Articles\\CreateArticle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Articles\\Details.cshtml",
+      "TargetPath": "Views\\Articles\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Articles\\Store.cshtml",
+      "TargetPath": "Views\\Articles\\Store.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Account\\Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Administration\\CreateRole.cshtml",
+      "TargetPath": "Views\\Administration\\CreateRole.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Administration\\UserManager.cshtml",
+      "TargetPath": "Views\\Administration\\UserManager.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Articles\\Cart.cshtml",
+      "TargetPath": "Views\\Articles\\Cart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Account\\Register.cshtml",
+      "TargetPath": "Views\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+>>>>>>> FrontWork
       "FilePath": "c:\\Users\\Fabio\\Desktop\\ProjetDevB2\\ProjetDevB2\\App\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"

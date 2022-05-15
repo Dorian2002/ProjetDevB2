@@ -3,12 +3,13 @@
     ViewData["Title"] = "CreateArticle";
 }
 
-<h1>Create a new article</h1>
+
 
 <div class="row">
     @using (Html.BeginForm("Create", "CreateArticle", FormMethod.Post))
     {
-        <div class="col-md-12">
+        <div class="col-md-4 mx-auto bg-dark text-white p-4 rounded">
+            <h1>Create a new article</h1>
             <form method="post" runat="server">
                 <div class="form-group">
                     <label asp-for="Name"></label>
@@ -38,8 +39,9 @@
                     <label asp-for="Categories"></label>
                     <select multiple  asp-for="Categories" class="form-control" name="catogoryList" value asp-items="@ViewBag.Categories"></select>
                 </div>
+                <br>   
 
-                <button style="width:auto" type="submit" class="btn btn-primary">Create</button>
+                <button style="width:auto" type="submit" class="btn btn-warning w-100">Create</button>
             </form>
 
         </div>

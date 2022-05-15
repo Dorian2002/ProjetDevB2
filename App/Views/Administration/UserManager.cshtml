@@ -10,16 +10,16 @@
         
             @foreach (var user in Model.UserList)
             {
-                <div class="card border-primary mb-3">
+                <div class="card border-black bg-dark mb-3">
                     <div class="card-body">
                         <li>@user.UserName | @user.Email
-                            <a style="width:auto" type="submit" class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Profile" asp-route-Id=@user.Id asp-route-modifiedByAdmin=@User.IsInRole("Admin")>Profile</a>
+                            <a style="width:auto" type="submit" class="btn btn-warning" asp-area="" asp-controller="Account" asp-action="Profile" asp-route-Id=@user.Id asp-route-modifiedByAdmin=@User.IsInRole("Admin")>Profile</a>
                             @using (Html.BeginForm("AddAdmin", "Administration", FormMethod.Post)){
                                 <input type="hidden" asp-for="Email" class="form-control" value=@user.Email/>
                                 <input type="hidden" asp-for="RoleName" class="form-control" value="Admin"/>
-                                <button style="width:auto" type="submit" class="btn btn-primary">Promote Admin</button>
+                                <button style="width:auto" type="submit" class="btn btn-warning">Promote Admin</button>
                             }
-                            <a style="width:auto" type="submit" class="btn btn-primary" asp-area="" asp-controller="Administration" asp-action="DeleteUser" asp-route-Id=@user.Id>Delete User</a>
+                            <a style="width:auto" type="submit" class="btn btn-danger" asp-area="" asp-controller="Administration" asp-action="DeleteUser" asp-route-Id=@user.Id>Delete User</a>
                             @if (ViewBag.ErrorMessage != null)
                             {
                                 <label class="text-danger">@ViewBag.ErrorMessage</label>

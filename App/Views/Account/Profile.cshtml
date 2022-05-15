@@ -3,12 +3,12 @@
     ViewData["Title"] = "Profile";
 }
 
-<h1>Profile</h1>
 
 <div class="row">
     @using (Html.BeginForm("EditProfile", "Account", FormMethod.Post))
     {
-        <div class="col-md-12">
+        <div class="col-md-4 mx-auto bg-dark text-white p-3 rounded">
+             <h1 class="text-center">Profile</h1>
             <form method="post">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <input type="hidden" asp-for="OldUserName" class="form-control" aria-placeholder=@Model.OldUserName/>
@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     <label asp-for="NewPassword">New Password</label>
-                    <input asp-for="NewPassword" class="form-control" />
+                    <input asp-for="NewPassword" class="form-control text-dark" aria-placeholder=/>
                     <span asp-validation-for="NewPassword" class="text-danger"></span>
                 </div>
 
@@ -37,7 +37,9 @@
                     <input asp-for="ConfirmNewPassword" class="form-control" />
                     <span asp-validation-for="ConfirmNewPassword" class="text-danger"></span>
                 </div>
-                <button style="width:auto" type="submit" class="btn btn-primary">Save Changes</button>
+                <br/>
+
+                <button style="width:auto" type="submit" class="mx-auto btn btn-warning w-100">Save Changes</button>
             </form>
         </div>
     }

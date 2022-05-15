@@ -17,11 +17,11 @@
                         <div class="card-footer">
                             <p class="card-text">@item.Price €</p>
                             <div>
-                                <a style="width:auto" type="button" class="btn btn-primary" asp-controller="Articles" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                <a style="width:auto" type="button" class="btn btn-warning" asp-controller="Articles" asp-action="Details" asp-route-id="@item.Id">Details</a>
                             </div>
                             @if (@User.Identity.Name == @item.Seller.UserName || @User.IsInRole("Admin")){
                                 <div>
-                                    <a style="width:auto" type="button" class="btn btn-primary" asp-controller="Store" asp-action="DeleteFromStore" asp-route-articleId="@item.Id">Delete from Store</a>
+                                    <a style="width:auto" type="button" class="btn btn-warning" asp-controller="Store" asp-action="DeleteFromStore" asp-route-articleId="@item.Id">Delete from Store</a>
                                 </div>
                             }
                         </div>
@@ -30,6 +30,6 @@
             }
         </div>
     }else{
-        <a style="width:auto" type="button" class="btn btn-primary" asp-area="" asp-controller="CreateArticle" asp-action="CreateArticle">Create New Article</a>
+        <a style="width:auto" type="button" class="btn btn-warning" asp-area="" asp-controller="CreateArticle" asp-action="CreateArticle">Create New Article</a>
     }
 </div>

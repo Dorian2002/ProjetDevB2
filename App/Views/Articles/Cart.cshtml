@@ -6,19 +6,20 @@
         <div>
             @foreach (Cart item in @Model.Articles)
             {
-                <div>
-                    <div class="card border-primary mb-3" style="max-width: 20rem;">
-                        <div class="card-header">@item.Article.Name</div>
-                        <div class="card-body">
-                            <img src="../../assets/images/defaultArticleImg.png" alt="Sample Photo" />
+                <div class="text-white">
+                    <div class="card border-black mb-3" style="max-width: 20rem;">
+                        <div class="card-header bg-dark">@item.Article.Name</div>
+                        <div class="card-body bg-dark">
+                            <img class="img-fluid" src="https://i.pinimg.com/564x/e0/c9/43/e0c943268626ac4849f889e7c7a5637d.jpg" alt="Sample Photo" />
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer bg-dark">
                             <p class="card-text">@item.Article.Price €</p>
                             <div>
-                                <a style="width:auto" type="button" class="btn btn-primary" asp-controller="Articles" asp-action="Details" asp-route-id="@item.Article.Id">Details</a>
+                                <a style="width:auto" type="button" class="btn btn-warning" asp-controller="Articles" asp-action="Details" asp-route-id="@item.Article.Id">Details</a>
                             </div>
+                            <br />
                             <div>
-                                <a style="width:auto" type="button" class="btn btn-primary" asp-controller="Articles" asp-action="RemoveFromCart" asp-route-cartId="@item.Id">Remove from Cart</a>
+                                <a style="width:auto" type="button" class="btn btn-warning" asp-controller="Articles" asp-action="RemoveFromCart" asp-route-cartId="@item.Id">Remove from Cart</a>
                             </div>
                         </div>
                     </div>
@@ -26,7 +27,7 @@
             }
             <div>
                 <h3>Total : @Model.TotalPrice €</h3>
-                <a style="width:auto" type="button" class="btn btn-primary">Buy</a>
+                <a style="width:auto" type="button" class="btn btn-warning">Buy</a>
             </div>
         </div>
     }else{

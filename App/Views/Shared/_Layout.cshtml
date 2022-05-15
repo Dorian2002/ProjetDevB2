@@ -5,78 +5,76 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - App</title>
+    <title>@ViewData["Title"] - ProjetDevB2</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/App.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">App</a>
+        <nav class="navbar navbar-dark bg-dark text-white navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
+            <div class="container-fluid d-flex justify-content-center align-item-center">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ProjetDevB2</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <form asp-controller="Articles" asp-action="Search">
-                                <p>
-                                    <input type="text" name="SearchString" />
-                                    <input type="submit" value="Filter" />
-                                </p>
-                            </form>
-                        </li>
+
                         @if(signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="UserStore" asp-route-Id="@signInManager.UserManager.GetUserId(@User)">My Store</a>
+                                <a class="nav-link text-white" asp-area="" asp-controller="Store" asp-action="UserStore" asp-route-Id="@signInManager.UserManager.GetUserId(@User)">My Store</a>
                             </li>
                             @if(User.IsInRole("Admin")){
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Administration" asp-action="UserManager">User Manager</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Administration" asp-action="CreateRole">Create Role</a>
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Administration" asp-action="CreateRole">CreateRole</a>
                                 </li>
                             }
                         }
+                        <li class="nav-item">
+                            <form class="d-flex" asp-controller="Articles" asp-action="Search">
+                                <p>
+                                    <input type="text" name="SearchString" />
+                                    <input type="submit" class ="nav-link text-dark bg-warning btn btn-outline-warning" value="Search" />
+                                </p>
+                            </form>
+                        </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto align-items-center">
                         @if(signInManager.IsSignedIn(User))
                         {
                             <form method="get">
                                 <li class="nav-item">
-                                    <a type="submit" class="nav-link btn btn-link py-0" style="width:auto" asp-action="Cart" asp-controller="Articles">
+                                    <a type="submit" class="nav-link text-light btn btn-link py-0" style="width:auto" asp-action="Cart" asp-controller="Articles">
                                         Cart
                                     </a>
                                 </li>
                             </form>
                             <form method="get">
                                 <li class="nav-item">
-                                    <a type="submit" class="nav-link btn btn-link py-0" style="width:auto" asp-action="Profile" asp-controller="Account" asp-route-Id=@signInManager.UserManager.GetUserId(@User) asp-route-modifiedByAdmin=@false>
+                                    <a type="submit" class="nav-link text-light btn btn-link py-0" style="width:auto" asp-action="Profile" asp-controller="Account" asp-route-Id=@signInManager.UserManager.GetUserId(@User) asp-route-modifiedByAdmin=@false>
                                         @User.Identity.Name
                                     </a>
                                 </li>
                             </form>
                             <form method="post" asp-action="Logout" asp-controller="Account">
                                 <li class="nav-item">
-                                    <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
+                                    <button type="submit" class="nav-link text-dark bg-warning btn btn-outline-warning mx-2" style="width:auto">
                                         Logout
                                     </button>
                                 </li>
                             </form>
                         }else{
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                                <a class="btn btn-outline-light me-2" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                                <a class="nav-link text-dark bg-warning btn btn-outline-warning mx-2" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
                             </li>
                         }
                     </ul>
@@ -92,7 +90,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - ProjetDevB2 - <a href="https://github.com/Dorian2002/ProjetDevB2" >About</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

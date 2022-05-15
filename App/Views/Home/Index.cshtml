@@ -2,20 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="text-center d-flex">
     <div>
         @foreach (Article item in @Model)
         {
-            <div>
-                <div class="card border-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">@item.Name</div>
-                    <div class="card-body">
-                        <img src="../../assets/images/defaultArticleImg.png" alt="Sample Photo" />
+            <div class="container-fluid">
+                <div class="card border-black mb-3" style="max-width: 20rem;">
+                    <div class="card-header bg-dark text-white">@item.Name</div>
+                    <div class="card-body bg-dark">
+                        <img class="img-fluid" src="https://i.pinimg.com/564x/e0/c9/43/e0c943268626ac4849f889e7c7a5637d.jpg" alt="Sample Photo" />
                     </div>
-                    <div class="card-footer">
-                        <p class="card-text">@item.Price €</p>
+                    <div class="card-footer bg-dark">
+                        <p class="card-text text-white">@item.Price €</p>
                         <div>
-                            <a style="width:auto" type="button" class="btn btn-primary" asp-area="" asp-controller="Articles" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            <a style="width:auto" type="button" class="nav-link text-dark bg-warning btn btn-outline-warning mx-2" asp-area="" asp-controller="Articles" asp-action="Details" asp-route-id="@item.Id">Details</a>
                         </div>
                     </div>
                 </div>
