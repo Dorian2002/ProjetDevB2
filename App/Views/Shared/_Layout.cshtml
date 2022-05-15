@@ -25,7 +25,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <form asp-controller="Articles" asp-action="Search">
+                                <p>
+                                    <input type="text" name="SearchString" />
+                                    <input type="submit" value="Filter" />
+                                </p>
+                            </form>
                         </li>
                         @if(signInManager.IsSignedIn(User))
                         {

@@ -58,5 +58,19 @@ namespace App.Controllers
             _dbContext.SaveChanges();
             return RedirectToAction("Cart");
         }
+        [HttpPost]
+        public async Task<IActionResult> Search(string searchString)
+        {
+            var articles = from m in _dbContext.Articles
+                        select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                articles = articles.Where(s => s.Name!.Contains(searchString));
+            }
+
+            return View(await articles.ToListAsync());
+        }
+
     }
 }
