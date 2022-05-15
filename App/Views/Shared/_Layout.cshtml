@@ -25,7 +25,7 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         @if(signInManager.IsSignedIn(User))
-                        {
+                        {d
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="CreateArticle" asp-action="CreateArticle">CreateArticle</a>
                             </li>
@@ -44,21 +44,21 @@
                         {
                             <form method="get">
                                 <li class="nav-item">
-                                    <a type="submit" class="nav-link btn btn-link py-0" style="width:auto" asp-action="Cart" asp-controller="Articles">
+                                    <a type="submit" class="nav-link text-light btn btn-link py-0" style="width:auto" asp-action="Cart" asp-controller="Articles">
                                         Cart
                                     </a>
                                 </li>
                             </form>
                             <form method="get">
                                 <li class="nav-item">
-                                    <a type="submit" class="nav-link btn btn-link py-0" style="width:auto" asp-action="Profile" asp-controller="Account" asp-route-Id=@signInManager.UserManager.GetUserId(@User) asp-route-modifiedByAdmin=@false>
+                                    <a type="submit" class="nav-link text-light btn btn-link py-0" style="width:auto" asp-action="Profile" asp-controller="Account" asp-route-Id=@signInManager.UserManager.GetUserId(@User) asp-route-modifiedByAdmin=@false>
                                         @User.Identity.Name
                                     </a>
                                 </li>
                             </form>
                             <form method="post" asp-action="Logout" asp-controller="Account">
                                 <li class="nav-item">
-                                    <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
+                                    <button type="submit" class="nav-link text-dark bg-warning btn btn-outline-warning mx-2" style="width:auto">
                                         Logout
                                     </button>
                                 </li>
