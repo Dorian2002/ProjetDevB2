@@ -12,7 +12,7 @@
             {
                 <div class="card border-black bg-dark mb-3">
                     <div class="card-body">
-                        <li>@user.UserName | @user.Email
+                        <li class="text-white">@user.UserName | @user.Email
                             <a style="width:auto" type="submit" class="btn btn-warning" asp-area="" asp-controller="Account" asp-action="Profile" asp-route-Id=@user.Id asp-route-modifiedByAdmin=@User.IsInRole("Admin")>Profile</a>
                             @using (Html.BeginForm("AddAdmin", "Administration", FormMethod.Post)){
                                 <input type="hidden" asp-for="Email" class="form-control" value=@user.Email/>

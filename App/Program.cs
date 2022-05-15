@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using App.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root");;
+var connectionString = builder.Configuration.GetConnectionString("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options
     .UseNpgsql("Server=localhost;Database=test_db;Port=5432;User Id=root;Password=root"));

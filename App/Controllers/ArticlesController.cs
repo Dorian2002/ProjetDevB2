@@ -62,14 +62,15 @@ namespace App.Controllers
         public async Task<IActionResult> Search(string searchString)
         {
             var articles = from m in _dbContext.Articles
-                        select m;
+            select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 articles = articles.Where(s => s.Name!.Contains(searchString));
             }
 
-            return View(await articles.ToListAsync());
+            return View("../Home/Index",await articles.ToListAsync());
+            //return View(await articles.ToListAsync());
         }
 
     }
