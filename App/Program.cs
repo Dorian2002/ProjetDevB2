@@ -6,7 +6,7 @@ using App.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("AppIdentityDbContextConnection");;
+var connectionString = builder.Configuration.GetConnectionString("Server=db;Database=test_db;Port=5432;User Id=root;Password=root");;
 
 builder.Services.AddDbContext<IdentityDbContext>(options =>
     options.UseSqlServer(connectionString));;
@@ -20,7 +20,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options
-    .UseNpgsql("AppIdentityDbContextConnection")
+    .UseNpgsql("Server=db;Database=test_db;Port=5432;User Id=root;Password=root")
     .LogTo(Console.WriteLine, LogLevel.Information)
     .EnableSensitiveDataLogging()
     .EnableDetailedErrors()
