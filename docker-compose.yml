@@ -33,6 +33,9 @@ services:
       ports:
           - 80:80
           - 443:443
+      volumes:
+        - /etc/ssl/:/etc/ssl/
+
       restart: always
   
   app:
